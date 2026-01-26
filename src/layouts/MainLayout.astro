@@ -1,0 +1,21 @@
+---
+import '@fontsource/open-sans/500.css';
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Игорь Un1ver5e Бабин</title>
+	</head>
+	<body class="flex flex-col relative">
+		<img src="/background.jpg" alt="background" class="size-full absolute z-0 blur-xs" />
+		<main class="mx-auto flex flex-col items-center gap-3 p-5 pb-10 text-center max-w-xl min-h-dvh z-10 bg-background">
+			<slot />
+		</main>
+	</body>
+</html>

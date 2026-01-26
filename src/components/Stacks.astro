@@ -1,0 +1,32 @@
+---
+const stacks : { name: string, url: string, icon: string, alt: string }[] = [
+    {
+        name: 'Фронтенд',
+        url: 'frontend',
+        icon: '/react.png',
+        alt: 'React logo'
+    },
+    {
+        name: 'Бекенд',
+        url: 'backend',
+        icon: '/dotnet.png',
+        alt: 'Dotnet logo'
+    },
+    {
+        name: 'Devops',
+        url: 'devops',
+        icon: '/docker.png',
+        alt: 'Docker logo'
+    }
+];
+---
+
+<div class="grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3">
+    {stacks.map(s =>
+            <a href={"/stack/" + s.url} class="max-w-xs p-2 rounded-lg border bg-background elevated">
+                <div class="w-full rounded-md">
+                    <img src={s.icon} alt={s.alt} class="w-full" />
+                </div>
+                <h3 class="text-lg font-semibold text-center">{s.name}</h3>
+            </a>)}
+</div>

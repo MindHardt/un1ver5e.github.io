@@ -1,11 +1,25 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import Stacks from "@/components/Stacks.astro";
+import Links from "@/components/Links.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout>
+	<div class="p-1 rounded-lg border elevated">
+		<img src="/me.jpg" alt="Моё фото" class="rounded-md size-full aspect-square" />
+	</div>
+	<h1 class="text-5xl border-b pb-2 font-bold">Игорь Бабин</h1>
+	<h2 class="text-3xl">All-in-one разработчик для вашего проекта</h2>
+	<p class="whitespace-pre-line">
+		Полный цикл - Backend, Frontend, Devops
+		Разработка это моя страсть,
+		в которой я совершенствуюсь каждый день.
+		Меня вдохновляет делать хорошие продукты
+		и вдыхать в них жизнь
+	</p>
+	<h2 class="text-3xl border-b pb-1 font-semibold">Мои стеки</h2>
+	<Stacks />
+	<Links />
+</MainLayout>
+
