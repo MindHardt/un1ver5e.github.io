@@ -1,6 +1,29 @@
 ---
 import '@fontsource/open-sans/500.css';
 import "../styles/global.css";
+import keywords from "@/assets/keywords.json";
+
+const title = 'Игорь Un1ver5e Бабин';
+const description = 'Личный сайт-визитка Игоря Un1ver5e Бабина';
+const image = new URL('/me.jpg', Astro.url).href;
+const metaTags : { name: string, content: string }[] = [
+	{name: 'description', content: description},
+	{name: 'keywords', content: keywords.join(',')},
+	{name: 'twitter:title', content: title},
+	{name: 'twitter:description', content: description},
+	{name: 'twitter:creator', content: '@un1ver5e'},
+	{name: 'twitter:site', content: '@un1ver5e'},
+	{name: 'og:type', content: 'website'},
+	{name: 'og:site_name', content: 'Un1ver5e portfolio'},
+	{name: 'og:logo', content: '/favicon.jpg'},
+	{name: 'og:title', content: title},
+	{name: 'og:description', content: description},
+	{name: 'og:url', content: Astro.url.href},
+	{name: 'twitter:image', content: image},
+	{name: 'twitter:card', content: 'summary_large_image'},
+	{name: 'og:image', content: image},
+	{name: 'og:image:alt', content: title}
+]
 ---
 
 <!doctype html>
@@ -10,6 +33,7 @@ import "../styles/global.css";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
 		<meta name="generator" content={Astro.generator} />
+		{metaTags.map(mt => <meta name={mt.name} content={mt.content} />)}
 		<title>Игорь Un1ver5e Бабин</title>
 	</head>
 	<body class="flex flex-col relative">
