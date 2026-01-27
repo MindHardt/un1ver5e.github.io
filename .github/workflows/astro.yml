@@ -28,6 +28,8 @@ jobs:
         uses: withastro/action@v5
         with:
           node-version: 24
+        env:
+          YANDEX_METRICA_ID: ${{ secrets.YANDEX.METRICA_ID }}
 
   deploy:
     needs: build
