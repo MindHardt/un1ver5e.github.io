@@ -2,7 +2,7 @@
   "name": "un1ver5e-portfolio",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@10.28.2+",
+  "packageManager": "pnpm@10.0.0+",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
