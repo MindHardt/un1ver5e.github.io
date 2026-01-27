@@ -10,10 +10,22 @@ import aws from "@/assets/techs/aws.png";
 import otel from "@/assets/techs/otel.png";
 import immediate from "@/assets/techs/immediateplatform.png";
 import blazor from "@/assets/techs/blazor.png";
+import react from "@/assets/techs/react.png";
+import tanstack from "@/assets/techs/tanstack.png";
+import astro from "@/assets/techs/astro.png";
+import tailwind from "@/assets/techs/tailwind.png";
+import mui from "@/assets/techs/mui.png";
+import shadcn from "@/assets/techs/shadcn.png";
+import vite from "@/assets/techs/vite.png";
+import zod from "@/assets/techs/zod.png";
+import typescript from "@/assets/techs/typescript.png";
+import yjs from "@/assets/techs/yjs.png";
+import bootstrap from "@/assets/techs/bootstrap.png";
+
 type TechData = { name: string, image: ImageMetadata, link: string };
 
-export const techList : { back: TechData[] } = {
-    back: [
+export const techList : { backend: TechData[], frontend: TechData[] } = {
+    backend: [
         {
             name: 'ASP.NET Core',
             image: aspnet,
@@ -73,6 +85,68 @@ export const techList : { back: TechData[] } = {
             name: 'OpenTelemetry',
             image: otel,
             link: 'https://opentelemetry.io/docs/languages/dotnet/'
+        },
+    ],
+    frontend: [
+        {
+            name: 'React',
+            image: react,
+            link: 'https://react.dev/'
+        },
+        {
+            name: 'TypeScript',
+            image: typescript,
+            link: 'https://www.typescriptlang.org/'
+        },
+        {
+            name: 'Vite',
+            image: vite,
+            link: 'https://vite.dev/'
+        },
+        {
+            name: 'Tanstack Start',
+            image: tanstack,
+            link: 'https://tanstack.com/start/latest'
+        },
+        {
+            name: 'Astro',
+            image: astro,
+            link: 'https://astro.build/',
+        },
+        {
+            name: 'TailwindCSS',
+            image: tailwind,
+            link: 'https://tailwindcss.com/'
+        },
+        {
+            name: 'Material UI',
+            image: mui,
+            link: 'https://mui.com/material-ui/'
+        },
+        {
+            name: 'ShadCN UI',
+            image: shadcn,
+            link: 'https://ui.shadcn.com/'
+        },
+        {
+            name: 'Bootstrap',
+            image: bootstrap,
+            link: 'https://getbootstrap.com/docs/5.3/getting-started/introduction/'
+        },
+        {
+            name: 'zod',
+            image: zod,
+            link: 'https://zod.dev/'
+        },
+        {
+            name: 'yjs',
+            image: yjs,
+            link: 'https://yjs.com'
+        },
+        {
+            name: 'Blazor',
+            image: blazor,
+            link: 'https://dotnet.microsoft.com/ru-ru/apps/aspnet/web-apps/blazor'
         },
     ]
 } as const;

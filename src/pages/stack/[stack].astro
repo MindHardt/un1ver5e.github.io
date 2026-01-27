@@ -1,0 +1,45 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import Heading from "@/components/Heading.astro";
+import BackHome from "@/components/BackHome.astro";
+import Tech from "@/components/Tech.astro";
+import {techList} from "@/assets/techs/_list.ts";
+import type {GetStaticPaths} from "astro";
+
+type StackType = keyof typeof techList;
+export const getStaticPaths : GetStaticPaths = () => ([
+    { params: { stack: 'backend' }},
+    { params: { stack: 'frontend' }}
+]);
+const { stack } = Astro.params as { stack: StackType };
+
+const texts : Record<StackType, { title: string; description: string }> = {
+    backend: {
+        title: 'Бекенд',
+        description: `
+            Самый большой опыт у меня в бекенде - с 2020 года.
+            Основа моего стека - ASP.Net Core
+            и стандартные библиотеки для этого фреймворка:
+            EFCore, Serilog, Microsoft OpenApi, AWS S3, StackExchange Redis.
+        `
+    },
+    frontend: {
+        title: 'Фронтенд',
+        description: `
+            В том или ином виде фронтендом я занимаюсь с 2022 года, 
+            когда я сделал свой первый сайт на чистом js.
+            С тех пор я изучаю новые технологии и подходы, стараюсь идти
+            в ногу со временем.
+        `
+    }
+}
+---
+<MainLayout>
+    <BackHome />
+    <Heading level={1}>{texts[stack].title}</Heading>
+    <p class="whitespace-pre-line">{texts[stack].description}</p>
+    <Heading level={2}>Технологии</Heading>
+    <div class="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        {techList[stack].map(x => <Tech image={x.image} name={x.name} link={x.link} />)}
+    </div>
+</MainLayout>
