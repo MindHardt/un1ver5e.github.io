@@ -33,7 +33,7 @@ const metaTags : { name: string, content: string }[] = [
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
-		<link rel="preload" as="font" href={openSansWoff} type="font/woff2" />
+		<link rel="preload" as="font" href={openSansWoff} type="font/woff2" crossorigin="anonymous" />
 		<meta name="generator" content={Astro.generator} />
 		{metaTags.map(mt => <meta name={mt.name} content={mt.content} />)}
 		<title>Игорь Un1ver5e Бабин</title>
