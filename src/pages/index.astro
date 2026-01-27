@@ -11,8 +11,8 @@ import Heading from "@/components/Heading.astro";
 	<div class="p-1 elevated">
 		<Image src={me} alt="Моё фото" priority width={658} height={658} class="rounded-md size-full aspect-square" />
 	</div>
-	<Heading>Игорь Бабин</Heading>
-	<h2 class="text-3xl">All-in-one разработчик для вашего проекта</h2>
+	<Heading level={1}>Игорь Бабин</Heading>
+	<Heading level={2}>All-in-one разработчик для вашего проекта</Heading>
 	<p class="whitespace-pre-line">
 		Полный цикл - Backend, Frontend, Devops
 		Разработка это моя страсть,
@@ -20,7 +20,7 @@ import Heading from "@/components/Heading.astro";
 		Меня вдохновляет делать хорошие продукты
 		и вдыхать в них жизнь
 	</p>
-	<h2 class="text-3xl border-b pb-1 font-semibold">Мои стеки</h2>
+	<Heading level={2}>Мои стеки</Heading>
 	<Stacks />
 	<Links />
 </MainLayout>
