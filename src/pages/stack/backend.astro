@@ -16,6 +16,6 @@ import {techList} from "@/assets/techs/techList.ts";
         EFCore, Serilog, Microsoft OpenApi, AWS S3, StackExchange Redis.
     </p>
     <div class="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        {techList.back.map(x => <Tech image={x.image} name={x.name} />)}
+        {techList.back.map(x => <Tech image={x.image} name={x.name} link={x.link} />)}
     </div>
 </MainLayout>
