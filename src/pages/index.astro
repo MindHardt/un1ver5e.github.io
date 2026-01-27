@@ -4,13 +4,14 @@ import Stacks from "@/components/Stacks.astro";
 import Links from "@/components/Links.astro";
 import Image from 'astro/components/Image.astro';
 import me from "@/assets/me.jpg";
+import Heading from "@/components/Heading.astro";
 ---
 
 <MainLayout>
-	<div class="p-1 rounded-lg border elevated">
+	<div class="p-1 elevated">
 		<Image src={me} alt="Моё фото" priority width={658} height={658} class="rounded-md size-full aspect-square" />
 	</div>
-	<h1 class="text-5xl border-b pb-2 font-bold">Игорь Бабин</h1>
+	<Heading>Игорь Бабин</Heading>
 	<h2 class="text-3xl">All-in-one разработчик для вашего проекта</h2>
 	<p class="whitespace-pre-line">
 		Полный цикл - Backend, Frontend, Devops

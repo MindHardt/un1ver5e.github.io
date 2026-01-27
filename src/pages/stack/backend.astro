@@ -1,5 +1,21 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
+import Heading from "@/components/Heading.astro";
+import BackHome from "@/components/BackHome.astro";
+import Tech from "@/components/Tech.astro";
+import {techList} from "@/assets/techs/techList.ts";
 
 ---
-<MainLayout>TBA</MainLayout>
+<MainLayout>
+    <BackHome />
+    <Heading>Бекенд</Heading>
+    <p class="whitespace-pre-line">
+        Самый большой опыт у меня в бекенде - с 2020 года.
+        Основа моего стека - ASP.Net Core
+        и стандартные библиотеки для этого фреймворка:
+        EFCore, Serilog, Microsoft OpenApi, AWS S3, StackExchange Redis.
+    </p>
+    <div class="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        {techList.back.map(x => <Tech image={x.image} name={x.name} />)}
+    </div>
+</MainLayout>

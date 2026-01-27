@@ -114,7 +114,7 @@
 }
 
 .elevated {
-  @apply shadow transition-[scale] hover:scale-105 bg-background;
+  @apply shadow transition-[scale] hover:scale-105 border rounded-lg bg-background;
 }
 
 @layer base {

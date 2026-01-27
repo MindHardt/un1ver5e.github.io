@@ -28,7 +28,7 @@ const stacks : { name: string, url: string, icon: ImageMetadata, alt: string }[]
 
 <div class="grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3">
     {stacks.map(s =>
-            <a href={"/stack/" + s.url} class="max-w-xs p-2 rounded-lg border bg-background elevated flex flex-col gap-1 justify-end">
+            <a href={"/stack/" + s.url} class="max-w-xs p-2 elevated flex flex-col gap-1 justify-end">
                 <div class="w-full rounded-md">
                     <Image src={s.icon} alt={s.alt} width={188} height={188} class="w-full rounded-md" />
                 </div>
