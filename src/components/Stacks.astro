@@ -1,21 +1,26 @@
 ---
-const stacks : { name: string, url: string, icon: string, alt: string }[] = [
+import react from "@/assets/react.png";
+import dotnet from "@/assets/dotnet.png";
+import docker from "@/assets/docker.png";
+import Image from 'astro/components/Image.astro';
+
+const stacks : { name: string, url: string, icon: ImageMetadata, alt: string }[] = [
     {
         name: 'Фронтенд',
         url: 'frontend',
-        icon: '/react.png',
+        icon: react,
         alt: 'React logo'
     },
     {
         name: 'Бекенд',
         url: 'backend',
-        icon: '/dotnet.png',
+        icon: dotnet,
         alt: 'Dotnet logo'
     },
     {
         name: 'Devops',
         url: 'devops',
-        icon: '/docker.png',
+        icon: docker,
         alt: 'Docker logo'
     }
 ];
@@ -23,9 +28,9 @@ const stacks : { name: string, url: string, icon: string, alt: string }[] = [
 
 <div class="grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3">
     {stacks.map(s =>
-            <a href={"/stack/" + s.url} class="max-w-xs p-2 rounded-lg border bg-background elevated">
+            <a href={"/stack/" + s.url} class="max-w-xs p-2 rounded-lg border bg-background elevated flex flex-col gap-1 justify-end">
                 <div class="w-full rounded-md">
-                    <img src={s.icon} alt={s.alt} width="512" height="512" class="w-full rounded-md" />
+                    <Image src={s.icon} alt={s.alt} width={188} height={188} class="w-full rounded-md" />
                 </div>
                 <h3 class="text-lg font-semibold text-center">{s.name}</h3>
             </a>)}

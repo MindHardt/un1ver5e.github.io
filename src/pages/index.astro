@@ -2,12 +2,13 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import Stacks from "@/components/Stacks.astro";
 import Links from "@/components/Links.astro";
-
+import Image from 'astro/components/Image.astro';
+import me from "@/assets/me.jpg";
 ---
 
 <MainLayout>
 	<div class="p-1 rounded-lg border elevated">
-		<img src="/me.jpg" alt="Моё фото" width="1024" height="1024" fetchpriority="high" class="rounded-md size-full aspect-square" />
+		<Image src={me} alt="Моё фото" priority width={658} height={658} class="rounded-md size-full aspect-square" />
 	</div>
 	<h1 class="text-5xl border-b pb-2 font-bold">Игорь Бабин</h1>
 	<h2 class="text-3xl">All-in-one разработчик для вашего проекта</h2>
