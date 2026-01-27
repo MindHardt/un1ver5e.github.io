@@ -6,8 +6,9 @@ import openSansWoff from "@fontsource/open-sans/files/open-sans-cyrillic-500-nor
 import "../styles/global.css";
 import keywords from "@/assets/keywords.json";
 import YandexMetrika from 'astro-ym';
+import {getSecret} from "astro:env/server";
 
-const yandexMetricaId = import.meta.env.YANDEX_METRICA_ID;
+const yandexMetricaId = getSecret('YANDEX_METRICA_ID');
 
 const title = 'Игорь Un1ver5e Бабин';
 const description = 'Личный сайт-визитка Игоря Un1ver5e Бабина';

@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: 24
         env:
-          YANDEX_METRICA_ID: ${{ secrets.YANDEX.METRICA_ID }}
+          YANDEX_METRICA_ID: ${{ secrets.YANDEX_METRICA_ID }}
 
   deploy:
     needs: build
