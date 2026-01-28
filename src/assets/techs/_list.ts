@@ -22,6 +22,16 @@ import typescript from "@/assets/techs/typescript.png";
 import yjs from "@/assets/techs/yjs.png";
 import bootstrap from "@/assets/techs/bootstrap.png";
 import openapi from "@/assets/techs/openapi.png";
+import docker from "@/assets/techs/docker.png";
+import traefik from "@/assets/techs/traefik.png";
+import portainer from "@/assets/techs/portainer.png";
+import postgres from "@/assets/techs/postgres.png";
+import keycloak from "@/assets/techs/keycloak.png";
+import gitea from "@/assets/techs/gitea.png";
+import yandexCloud from "@/assets/techs/yandex-cloud.png";
+import letsencrypt from "@/assets/techs/letsencrypt.png";
+import seq from "@/assets/techs/seq.png";
+import nginx from "@/assets/techs/nginx.png";
 
 export type TechData = { name: string, image: ImageMetadata, link: string };
 export const techStacks = ['backend', 'frontend', 'devops'] as const;
@@ -154,9 +164,64 @@ export const techList : Record<TechStack, TechData[]> = {
     ],
     devops: [
         {
+            name: 'Docker',
+            image: docker,
+            link: 'https://www.docker.com/'
+        },
+        {
+            name: 'Traefik',
+            image: traefik,
+            link: 'https://traefik.io/'
+        },
+        {
+            name: 'Portainer',
+            image: portainer,
+            link: 'https://portainer.io/'
+        },
+        {
+            name: 'PostgreSQL',
+            image: postgres,
+            link: 'https://www.postgresql.org/'
+        },
+        {
+            name: 'Keycloak',
+            image: keycloak,
+            link: 'https://www.keycloak.org/'
+        },
+        {
+            name: 'Gitea',
+            image: gitea,
+            link: 'https://about.gitea.com/'
+        },
+        {
+            name: 'Yandex Cloud',
+            image: yandexCloud,
+            link: 'https://yandex.cloud/ru'
+        },
+        {
+            name: 'Clickhouse',
+            image: clickhouse,
+            link: 'https://clickhouse.com'
+        },
+        {
+            name: "Let's Encrypt",
+            image: letsencrypt,
+            link: 'https://letsencrypt.org/'
+        },
+        {
+            name: 'Seq',
+            image: seq,
+            link: 'https://datalust.co/'
+        },
+        {
+            name: 'Nginx',
+            image: nginx,
+            link: 'https://nginx.org/ru/'
+        },
+        {
             name: 'OpenTelemetry',
             image: otel,
             link: 'https://opentelemetry.io/docs/languages/dotnet/'
-        },
+        }
     ]
 } as const;
