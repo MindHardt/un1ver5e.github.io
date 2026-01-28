@@ -21,10 +21,13 @@ import zod from "@/assets/techs/zod.png";
 import typescript from "@/assets/techs/typescript.png";
 import yjs from "@/assets/techs/yjs.png";
 import bootstrap from "@/assets/techs/bootstrap.png";
+import openapi from "@/assets/techs/openapi.png";
 
-type TechData = { name: string, image: ImageMetadata, link: string };
+export type TechData = { name: string, image: ImageMetadata, link: string };
+export const techStacks = ['backend', 'frontend', 'devops'] as const;
+export type TechStack = typeof techStacks[number];
 
-export const techList : { backend: TechData[], frontend: TechData[] } = {
+export const techList : Record<TechStack, TechData[]> = {
     backend: [
         {
             name: 'ASP.NET Core',
@@ -35,6 +38,11 @@ export const techList : { backend: TechData[], frontend: TechData[] } = {
             name: 'Immediate.Apis',
             image: immediate,
             link: 'https://github.com/ImmediatePlatform/Immediate.Apis/'
+        },
+        {
+            name: 'OpenAPI',
+            image: openapi,
+            link: 'https://www.openapis.org/'
         },
         {
             name: 'Blazor',
@@ -80,11 +88,6 @@ export const techList : { backend: TechData[], frontend: TechData[] } = {
             name: 'testcontainers',
             image: testcontainers,
             link: 'https://testcontainers.com/?language=dotnet'
-        },
-        {
-            name: 'OpenTelemetry',
-            image: otel,
-            link: 'https://opentelemetry.io/docs/languages/dotnet/'
         },
     ],
     frontend: [
@@ -147,6 +150,13 @@ export const techList : { backend: TechData[], frontend: TechData[] } = {
             name: 'Blazor',
             image: blazor,
             link: 'https://dotnet.microsoft.com/ru-ru/apps/aspnet/web-apps/blazor'
+        },
+    ],
+    devops: [
+        {
+            name: 'OpenTelemetry',
+            image: otel,
+            link: 'https://opentelemetry.io/docs/languages/dotnet/'
         },
     ]
 } as const;

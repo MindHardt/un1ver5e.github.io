@@ -4,6 +4,7 @@ import dotnet from "@/assets/dotnet.png";
 import docker from "@/assets/docker.png";
 import Image from 'astro/components/Image.astro';
 import Heading from "@/components/Heading.astro";
+import Card from "@/components/Card.astro";
 
 const stacks : { name: string, url: string, icon: ImageMetadata, alt: string }[] = [
     {
@@ -28,9 +29,5 @@ const stacks : { name: string, url: string, icon: ImageMetadata, alt: string }[]
 ---
 
 <div class="grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3">
-    {stacks.map(s =>
-            <a href={"/stack/" + s.url} class="max-w-xs p-2 elevated flex flex-col gap-1 justify-end">
-                <Image src={s.icon} alt={s.alt} width={188} height={188} class="w-full rounded-md" />
-                <Heading level={3}>{s.name}</Heading>
-            </a>)}
+    {stacks.map(s => <Card name={s.name} link={"/stack/" + s.url} image={s.icon} />)}
 </div>

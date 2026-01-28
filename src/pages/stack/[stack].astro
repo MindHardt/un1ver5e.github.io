@@ -2,18 +2,16 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import Heading from "@/components/Heading.astro";
 import BackHome from "@/components/BackHome.astro";
-import Tech from "@/components/Tech.astro";
-import {techList} from "@/assets/techs/_list.ts";
+import Card from "@/components/Card.astro";
+import {techList, type TechStack, techStacks} from "@/assets/techs/_list.ts";
 import type {GetStaticPaths} from "astro";
 
-type StackType = keyof typeof techList;
-export const getStaticPaths : GetStaticPaths = () => ([
-    { params: { stack: 'backend' }},
-    { params: { stack: 'frontend' }}
-]);
-const { stack } = Astro.params as { stack: StackType };
+export const getStaticPaths : GetStaticPaths = () => techStacks.map(stack => (
+    { params: { stack }}
+));
+const { stack } = Astro.params as { stack: TechStack };
 
-const texts : Record<StackType, { title: string; description: string }> = {
+const texts : Record<TechStack, { title: string; description: string }> = {
     backend: {
         title: 'Бекенд',
         description: `
@@ -31,6 +29,15 @@ const texts : Record<StackType, { title: string; description: string }> = {
             С тех пор я изучаю новые технологии и подходы, стараюсь идти
             в ногу со временем.
         `
+    },
+    devops: {
+        title: 'DevOps',
+        description: `
+            Я начал изучать DevOps и системное администрирование
+            примерно в 2021 году, когда купил себе Raspberry PI 4
+            в качестве домашнего сервера. Сейчас я администрирую несколько
+            серверов разных компаний, которые работают 24/7 и приносят прибыль
+        `
     }
 }
 ---
@@ -39,7 +46,7 @@ const texts : Record<StackType, { title: string; description: string }> = {
     <Heading level={1}>{texts[stack].title}</Heading>
     <p class="whitespace-pre-line">{texts[stack].description}</p>
     <Heading level={2}>Технологии</Heading>
-    <div class="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        {techList[stack].map(x => <Tech image={x.image} name={x.name} link={x.link} />)}
+    <div class="grid gap-2 grid-cols-2 md:grid-cols-3">
+        {techList[stack].map(x => <Card image={x.image} name={x.name} link={x.link} newTab />)}
     </div>
 </MainLayout>

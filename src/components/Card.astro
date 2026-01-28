@@ -5,12 +5,14 @@ import Heading from "@/components/Heading.astro";
 export interface Props {
     name: string,
     image: ImageMetadata,
-    link: string
+    link: string,
+    newTab?: boolean
 }
-const { name, image, link } = Astro.props;
+const { name, image, link, newTab } = Astro.props;
+const [target, rel] = newTab ? ['_blank', 'noopener'] : [];
 ---
 
-<a target="_blank" href={link} class="elevated flex flex-col gap-1 items-center justify-end p-2">
+<a target={target} rel={rel} href={link} class="elevated flex flex-col gap-1 items-center justify-end p-2">
     <Image src={image} alt='' width={256} height={256} class="rounded-md w-full my-auto" />
     <Heading level={3}>{name}</Heading>
 </a>
