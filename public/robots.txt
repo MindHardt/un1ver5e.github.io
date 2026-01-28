@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /yandex_b9a06ef29884fbd9.html
+Sitemap: https://un1ver5e.tech/sitemap-index.xml
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 0.5
