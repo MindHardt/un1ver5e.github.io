@@ -5,10 +5,7 @@ import background from "@/assets/background.jpg";
 import openSansWoff from "@fontsource/open-sans/files/open-sans-cyrillic-500-normal.woff?url";
 import "../styles/global.css";
 import keywords from "@/assets/keywords.json";
-import YandexMetrika from 'astro-ym';
-import {getSecret} from "astro:env/server";
-
-const yandexMetricaId = getSecret('YANDEX_METRICA_ID');
+import YandexMetrica from "@/components/YandexMetrica.astro";
 
 const title = 'Игорь Un1ver5e Бабин';
 const description = 'Личный сайт-визитка Игоря Un1ver5e Бабина';
@@ -40,7 +37,7 @@ const metaTags : { name: string, content: string }[] = [
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
 		<link rel="preload" as="font" href={openSansWoff} type="font/woff2" crossorigin="anonymous" />
-		{yandexMetricaId && <YandexMetrika counterId={yandexMetricaId} />}
+		<YandexMetrica />
 		<meta name="generator" content={Astro.generator} />
 		{metaTags.map(mt => <meta name={mt.name} content={mt.content} />)}
 		<title>Игорь Un1ver5e Бабин</title>
