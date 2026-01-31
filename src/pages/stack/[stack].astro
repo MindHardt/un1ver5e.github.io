@@ -3,15 +3,18 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import Heading from "@/components/Heading.astro";
 import BackHome from "@/components/BackHome.astro";
 import Card from "@/components/Card.astro";
-import {techList, type TechStack, techStacks} from "@/assets/techs/_list.ts";
 import type {GetStaticPaths} from "astro";
+import {type TechTag, techTags} from "@/content.config.ts";
+import {getCollection} from "astro:content";
 
-export const getStaticPaths : GetStaticPaths = () => techStacks.map(stack => (
-    { params: { stack }}
-));
-const { stack } = Astro.params as { stack: TechStack };
+export const getStaticPaths : GetStaticPaths = () =>
+    techTags.map(x => (({ params: { stack: x }})))
+const { stack } = Astro.params as { stack: TechTag };
+const techs = (await getCollection('techs'))
+    .filter(x => x.data.tags.includes(stack))
+    .sort((l, r) => l.data.order - r.data.order);
 
-const texts : Record<TechStack, { title: string; description: string }> = {
+const texts : Record<TechTag, { title: string; description: string }> = {
     backend: {
         title: 'Бекенд',
         description: `
@@ -47,6 +50,6 @@ const texts : Record<TechStack, { title: string; description: string }> = {
     <p class="whitespace-pre-line">{texts[stack].description}</p>
     <Heading level={2}>Технологии</Heading>
     <div class="grid gap-2 grid-cols-2 md:grid-cols-3">
-        {techList[stack].map(x => <Card image={x.image} name={x.name} link={x.link} newTab />)}
+        {techs.map(x => <Card image={x.data.image} name={x.data.name} link={`/techs/${x.id}`} />)}
     </div>
 </MainLayout>
