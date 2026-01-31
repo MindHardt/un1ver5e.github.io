@@ -2,14 +2,14 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import Stacks from "@/components/Stacks.astro";
 import Links from "@/components/Links.astro";
-import Image from 'astro/components/Image.astro';
+import { Image } from 'astro:assets';
 import me from "@/content/images/me.jpg";
 import Heading from "@/components/Heading.astro";
 ---
 
 <MainLayout>
 	<div class="p-1 elevated">
-		<Image src={me} alt="Моё фото" priority width={658} height={658} class="rounded-md size-full aspect-square" />
+		<Image src={me} alt="Моё фото" priority={true} width={658} height={658} class="rounded-md size-full aspect-square" />
 	</div>
 	<Heading level={1}>Игорь Бабин</Heading>
 	<Heading level={2}>All-in-one разработчик для вашего проекта</Heading>

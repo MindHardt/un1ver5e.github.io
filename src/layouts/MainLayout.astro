@@ -1,9 +1,10 @@
 ---
-import Image from 'astro/components/Image.astro';
 import "@fontsource/open-sans/500.css";
+import "../styles/global.css";
+
+import { Image } from 'astro:assets';
 import background from "@/content/images/background.jpg";
 import openSansWoff from "@fontsource/open-sans/files/open-sans-cyrillic-500-normal.woff?url";
-import "../styles/global.css";
 import keywords from "@/content/keywords.json";
 import YandexMetrica from "@/components/YandexMetrica.astro";
 
@@ -44,7 +45,7 @@ const metaTags : { name: string, content: string }[] = [
 		<title>Игорь Un1ver5e Бабин</title>
 	</head>
 	<body class="flex flex-col relative">
-		<Image src={background} alt="" priority class="size-full absolute z-0 blur-xs" />
+		<Image src={background} alt="" priority={true} class="size-full absolute z-0 blur-xs" />
 		<main class="mx-auto flex flex-col items-center gap-3 p-5 pb-40 text-center max-w-2xl min-h-dvh z-10 bg-background">
 			<slot />
 		</main>
