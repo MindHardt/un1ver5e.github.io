@@ -4,7 +4,7 @@ import {getCollection, getEntry, render} from "astro:content";
 import Image from 'astro/components/Image.astro';
 import MainLayout from "@/layouts/MainLayout.astro";
 import { ExternalLink } from "@lucide/astro";
-import BackHome from "@/components/BackHome.astro";
+
 export const getStaticPaths = async () : Promise<GetStaticPathsResult> => {
     return (await getCollection('techs')).map(x => ({ params: { tech: x.id }}))
 }
@@ -15,17 +15,16 @@ const { Content } = await render(entry);
 ---
 
 <MainLayout>
-    <article class="flex flex-col gap-2 items-center">
-        <BackHome />
+    <article class="flex flex-col gap-5 items-center">
         <h1 class="font-extrabold text-2xl">{entry.data.name}</h1>
         <Content />
-        <a class="flex flex-row gap-1 items-center text-blue-500 hover:text-blue-700 hover:border-b-blue-700"
+        <a class="flex flex-row gap-1 items-center"
            href={entry.data.about}
            target="_blank"
            rel="noopener noreferrer">
             <ExternalLink />
             Узнать больше
         </a>
-        <Image src={entry.data.image} alt='' width={512} height={512} class="elevated rounded size-full" />
+        <Image src={entry.data.image} alt='' width={320} height={320} class="rounded max-w-xs" />
     </article>
 </MainLayout>
