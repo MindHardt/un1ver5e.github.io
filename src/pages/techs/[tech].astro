@@ -1,30 +1,32 @@
 ---
 import type {GetStaticPathsResult} from "astro";
-import {getCollection, getEntry, render} from "astro:content";
+import {type CollectionEntry, getCollection, render} from "astro:content";
 import { Image } from 'astro:assets';
 import MainLayout from "@/layouts/MainLayout.astro";
 import { ExternalLink } from "@lucide/astro";
 
 export const getStaticPaths = async () : Promise<GetStaticPathsResult> => {
-    return (await getCollection('techs')).map(x => ({ params: { tech: x.id }}))
+    return (await getCollection('techs')).map(tech => ({
+        params: { tech: tech.id },
+        props: { tech }
+    }))
 }
-const { tech } = Astro.params as { tech: string };
-const entry = await getEntry('techs', tech)!;
-const { Content } = await render(entry);
+const { tech } = Astro.props as { tech: CollectionEntry<'techs'> }
+const { Content } = await render(tech);
 
 ---
 
 <MainLayout>
     <article class="flex flex-col gap-5 items-center">
-        <h1 class="font-extrabold text-2xl">{entry.data.name}</h1>
+        <h1 class="font-extrabold text-2xl">{tech.data.name}</h1>
         <Content />
         <a class="flex flex-row gap-1 items-center"
-           href={entry.data.about}
+           href={tech.data.about}
            target="_blank"
            rel="noopener noreferrer">
             <ExternalLink />
             Узнать больше
         </a>
-        <Image src={entry.data.image} alt='' width={320} height={320} class="rounded max-w-xs" />
+        <Image src={tech.data.image} alt='' width={320} height={320} class="rounded max-w-xs" />
     </article>
 </MainLayout>

@@ -18,5 +18,16 @@ const techs = defineCollection({
     })
 });
 
+const projects = defineCollection({
+    loader: glob({ pattern: '*.md', base: './src/content/projects' }),
+    schema: ({ image }) => z.object({
+        title: z.string(),
+        image: image(),
+        from: z.coerce.date(),
+        to: z.coerce.date().optional(),
+        role: z.string()
+    })
+})
 
-export const collections = { techs };
+
+export const collections = { techs, projects };
