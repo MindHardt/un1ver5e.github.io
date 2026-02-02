@@ -1,5 +1,6 @@
 ---
 title: 'Miniopros'
+company: 'Unit6'
 role: 'Junior Backend разработчик'
 image: '../images/miniopros.png'
 from: '2023-10-01'

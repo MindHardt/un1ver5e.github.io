@@ -1,5 +1,6 @@
 ---
 title: 'Nightscout.Online'
+company: 'AutotunePro LLC'
 role: 'Старший разработчик, Fullstack и DevOps'
 image: '../images/nightscout.online.png'
 from: '2024-11-01'

@@ -1,5 +1,6 @@
 ---
 title: 'AutotunePro'
+company: 'AutotunePro LLC'
 role: 'Старший разработчик, Fullstack и DevOps'
 image: '../images/autotunepro.png'
 from: '2023-05-01'

@@ -28,6 +28,6 @@ const stacks : { name: string, url: string, icon: ImageMetadata, alt: string }[]
 ];
 ---
 
-<div class="grid grid-cols-1 gap-4 xs:grid-cols-2 md:grid-cols-3">
+<div class="grid grid-cols-3 gap-1">
     {stacks.map(s => <Card name={s.name} link={"/stack/" + s.url} image={s.icon} />)}
 </div>

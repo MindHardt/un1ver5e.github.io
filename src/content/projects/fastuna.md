@@ -1,5 +1,6 @@
 ---
 title: 'Fastuna'
+company: 'Unit6'
 role: 'Junior Backend разработчик'
 image: '../images/fastuna.png'
 from: '2023-04-01'

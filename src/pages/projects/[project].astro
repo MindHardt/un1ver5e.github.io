@@ -1,0 +1,38 @@
+---
+import type {GetStaticPaths} from "astro";
+import {type CollectionEntry, getCollection, render} from "astro:content";
+import MainLayout from "@/layouts/MainLayout.astro";
+import Heading from "@/components/Heading.astro";
+import { Image } from 'astro:assets';
+
+export const getStaticPaths = async () : GetStaticPaths => {
+    return (await getCollection('projects')).map(project => ({
+        params: { project: project.id }, props: { project }
+    }))
+}
+const { project } = Astro.props as { project: CollectionEntry<'projects'> }
+const { Content } = await render(project)
+
+---
+
+<MainLayout>
+    <div class="flex flex-col items-center gap-4">
+        <Heading level={1}>{project.data.title}</Heading>
+        <div class="flex flex-row gap-1 items-center">
+            <span class="font-semibold">Компания:</span>
+            <span class="text-lg">{project.data.company}</span>
+        </div>
+        <div class="flex flex-row gap-1 items-center">
+            <span class="font-semibold">Роль:</span>
+            <span class="text-lg">{project.data.role}</span>
+        </div>
+        <div class="flex flex-row gap-1 items-center">
+            <span class="font-semibold">Время работы:</span>
+            <span class="text-lg">{project.data.from.toLocaleDateString()}</span>
+            -
+            <span class="text-lg">{project.data.to?.toLocaleDateString() ?? 'Настоящий момент'}</span>
+        </div>
+        <Content />
+        <Image src={project.data.image} alt='' width={768} height={384} />
+    </div>
+</MainLayout>
