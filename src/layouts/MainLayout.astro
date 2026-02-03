@@ -2,15 +2,23 @@
 import "@fontsource/open-sans/500.css";
 import "../styles/global.css";
 
-import { Image } from 'astro:assets';
+import {getImage, Image} from 'astro:assets';
 import background from "@/content/images/background.jpg";
 import openSansWoff from "@fontsource/open-sans/files/open-sans-cyrillic-500-normal.woff?url";
 import keywords from "@/content/keywords.json";
 import YandexMetrica from "@/components/YandexMetrica.astro";
+import me from "@/content/images/me.jpg";
+interface Props {
+	title?: string;
+	description?: string;
+	image?: ImageMetadata;
+}
 
-const title = 'Игорь Un1ver5e Бабин';
-const description = 'Личный сайт-визитка Игоря Un1ver5e Бабина';
-const image = new URL('/me.jpg', Astro.url).href;
+let { title, description, image } = Astro.props;
+title ??= 'Игорь Un1ver5e Бабин';
+description ??= 'Личный сайт-визитка Игоря Un1ver5e Бабина';
+image ??= me;
+const metaImage = await getImage({ src: image, width: 1024, height: 1024 });
 const metaTags : { name: string, content: string }[] = [
 	{name: 'description', content: description},
 	{name: 'keywords', content: keywords.join(',')},
@@ -24,9 +32,9 @@ const metaTags : { name: string, content: string }[] = [
 	{name: 'og:title', content: title},
 	{name: 'og:description', content: description},
 	{name: 'og:url', content: Astro.url.href},
-	{name: 'twitter:image', content: image},
+	{name: 'twitter:image', content: metaImage.src},
 	{name: 'twitter:card', content: 'summary_large_image'},
-	{name: 'og:image', content: image},
+	{name: 'og:image', content: metaImage.src},
 	{name: 'og:image:alt', content: title}
 ]
 ---
@@ -42,7 +50,7 @@ const metaTags : { name: string, content: string }[] = [
 		<YandexMetrica />
 		<meta name="generator" content={Astro.generator} />
 		{metaTags.map(mt => <meta name={mt.name} content={mt.content} />)}
-		<title>Игорь Un1ver5e Бабин</title>
+		<title>{title}</title>
 	</head>
 	<body class="flex flex-col relative">
 		<Image src={background} alt="" priority={true} class="size-full absolute z-0 blur-xs" />

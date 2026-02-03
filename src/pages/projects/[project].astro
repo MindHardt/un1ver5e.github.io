@@ -17,7 +17,7 @@ const { Content } = await render(project)
 
 ---
 
-<MainLayout>
+<MainLayout title={project.data.title} image={project.data.image}>
     <div class="flex flex-col items-center gap-4">
         <Back />
         <Heading level={1}>{project.data.title}</Heading>
