@@ -1,7 +1,7 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
 import Heading from "@/components/Heading.astro";
-import BackHome from "@/components/BackHome.astro";
+import Back from "@/components/Back.astro";
 import Card from "@/components/Card.astro";
 import type {GetStaticPaths} from "astro";
 import {type TechTag, techTags} from "@/content.config.ts";
@@ -45,11 +45,11 @@ const texts : Record<TechTag, { title: string; description: string }> = {
 }
 ---
 <MainLayout>
-    <BackHome />
+    <Back />
     <Heading level={1}>{texts[stack].title}</Heading>
     <p class="whitespace-pre-line">{texts[stack].description}</p>
     <Heading level={2}>Технологии</Heading>
     <div class="grid gap-2 grid-cols-2 md:grid-cols-3">
-        {techs.map(x => <Card image={x.data.image} name={x.data.name} link={`/techs/${x.id}`} />)}
+        {techs.map(x => <Card image={x.data.image} name={x.data.name} link={`/stack/${stack}/${x.id}`} />)}
     </div>
 </MainLayout>

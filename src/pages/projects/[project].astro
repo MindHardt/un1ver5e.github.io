@@ -4,8 +4,9 @@ import {type CollectionEntry, getCollection, render} from "astro:content";
 import MainLayout from "@/layouts/MainLayout.astro";
 import Heading from "@/components/Heading.astro";
 import { Image } from 'astro:assets';
+import Back from "@/components/Back.astro";
 
-export const getStaticPaths = async () : GetStaticPaths => {
+export const getStaticPaths : GetStaticPaths = async () => {
     return (await getCollection('projects')).map(project => ({
         params: { project: project.id }, props: { project }
     }))
@@ -17,6 +18,7 @@ const { Content } = await render(project)
 
 <MainLayout>
     <div class="flex flex-col items-center gap-4">
+        <Back />
         <Heading level={1}>{project.data.title}</Heading>
         <div class="flex flex-row gap-1 items-center">
             <span class="font-semibold">Компания:</span>

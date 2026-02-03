@@ -1,0 +1,13 @@
+---
+import { ArrowLeft } from "@lucide/astro";
+interface Props {
+    href?: string;
+}
+const { href } = Astro.props;
+
+---
+
+<a href={href ?? '/'} class="elevated p-1 mx-auto flex flex-row gap-1 items-center text-foreground">
+    <ArrowLeft />
+    Назад
+</a>
