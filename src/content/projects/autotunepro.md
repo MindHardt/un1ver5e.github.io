@@ -4,6 +4,7 @@ company: 'AutotunePro LLC'
 role: 'Старший разработчик, Fullstack и DevOps'
 image: '../images/autotunepro.png'
 from: '2023-05-01'
+url: 'https://autotunepro.ru/'
 ---
 
 Уникальный в своём роде проект - ежедневный автоматический подбор коэффициентов для людей с диабетом.

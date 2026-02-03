@@ -5,6 +5,7 @@ role: 'Junior Backend разработчик'
 image: '../images/fastuna.png'
 from: '2023-04-01'
 to: '2023-10-01'
+fastuna: 'https://fastuna.ru/'
 ---
 
 B2B платформа для количественных анонимных опросов. 

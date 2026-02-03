@@ -4,6 +4,7 @@ company: 'Self-employed'
 role: 'Автор идеи, Главный разработчик'
 image: '../images/un1ver5etech.png'
 from: '2026-01-27'
+url: 'https://un1ver5e.tech'
 ---
 
 Когда я снова начал искать работу то решил сделать себе полноценный сайт-визитку. 

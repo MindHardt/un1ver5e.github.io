@@ -14,7 +14,7 @@ const techs = defineCollection({
         order: z.number().int(),
         image: image(),
         about: z.string().url(),
-        tags: z.array(zTechTag).transform(x => [...new Set(x)])
+        tags: z.array(zTechTag).transform(x => [...new Set(x)]),
     })
 });
 
@@ -26,7 +26,8 @@ const projects = defineCollection({
         company: z.string(),
         from: z.coerce.date(),
         to: z.coerce.date().optional(),
-        role: z.string()
+        role: z.string(),
+        url: z.string().url().optional()
     })
 })
 

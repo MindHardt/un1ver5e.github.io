@@ -28,13 +28,7 @@ const { Content } = await render(tech);
         <Back href=`/stack/${stack}` />
         <h1 class="font-extrabold text-2xl">{tech.data.name}</h1>
         <Content />
-        <a class="flex flex-row gap-1 items-center"
-           href={tech.data.about}
-           target="_blank"
-           rel="noopener noreferrer">
-            <ExternalLink />
-            Узнать больше
-        </a>
+        <ExternalLink href={tech.data.about} />
         <Image src={tech.data.image} alt='' width={320} height={320} class="rounded max-w-xs" />
     </article>
 </MainLayout>

@@ -5,6 +5,7 @@ role: 'Junior+ Backend разработчик'
 image: '../images/adtarget.png'
 from: '2024-10-01'
 to: '2024-12-01'
+url: 'https://eastwind.ai/ru/products/ew-ad-target/'
 ---
 
 Сервис автоматизации маркетинга, основные пользователи которого - сотовые операторы.

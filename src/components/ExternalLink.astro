@@ -1,0 +1,17 @@
+---
+import { LucideExternalLink } from '@lucide/astro';
+
+interface Props {
+    href: string,
+    label?: string
+}
+const { href, label } = Astro.props;
+---
+
+<a class="flex flex-row gap-1 items-center"
+   href={href}
+   target="_blank"
+   rel="noopener noreferrer">
+    <LucideExternalLink />
+    {label ?? 'Узнать больше'}
+</a>

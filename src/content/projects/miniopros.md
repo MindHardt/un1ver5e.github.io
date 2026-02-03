@@ -5,6 +5,7 @@ role: 'Junior Backend разработчик'
 image: '../images/miniopros.png'
 from: '2023-10-01'
 to: '2024-06-01'
+miniopros: 'https://miniopros.com/start'
 ---
 
 Единая платформа для прохождения опросов за вознаграждение. 

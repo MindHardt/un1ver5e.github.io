@@ -28,6 +28,9 @@ const stacks : { name: string, url: string, icon: ImageMetadata, alt: string }[]
 ];
 ---
 
-<div class="grid grid-cols-3 gap-1">
-    {stacks.map(s => <Card name={s.name} link={"/stack/" + s.url} image={s.icon} />)}
-</div>
+<section>
+    <Heading level={2}>Мои стеки</Heading>
+    <div class="grid grid-cols-3 gap-1">
+        {stacks.map(s => <Card name={s.name} link={"/stack/" + s.url} image={s.icon} />)}
+    </div>
+</section>

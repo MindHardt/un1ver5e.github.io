@@ -116,6 +116,9 @@
 .elevated {
   @apply shadow transition-[scale] hover:scale-105 border rounded-lg bg-background;
 }
+section {
+  @apply flex flex-col gap-3 items-center;
+}
 
 @layer base {
   * {

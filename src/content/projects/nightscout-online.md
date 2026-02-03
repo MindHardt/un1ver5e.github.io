@@ -4,6 +4,7 @@ company: 'AutotunePro LLC'
 role: 'Старший разработчик, Fullstack и DevOps'
 image: '../images/nightscout.online.png'
 from: '2024-11-01'
+url: 'https://nightscout.online'
 ---
 
 Ведущий на южном урале хостинг Nightscout - приложения для мониторинга диабета.

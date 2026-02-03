@@ -1,11 +1,17 @@
 ---
 import {getCollection} from "astro:content";
 import Card from "@/components/Card.astro";
+import Heading from "./Heading.astro";
 const projects = (await getCollection('projects'))
     .sort((l, r) => l.data.from.valueOf() - r.data.from.valueOf())
 
 ---
 
-<div class="grid grid-cols-2 gap-2">
-    {projects.map(p => <Card name={p.data.title} link={"/projects/" + p.id} image={p.data.image} />)}
-</div>
+
+<section>
+    <Heading level={2}>Проекты</Heading>
+    <div class="grid grid-cols-2 gap-2">
+        {projects.map(p =>
+                <Card name={p.data.title} link={"/projects/" + p.id} width={512} image={p.data.image} />)}
+    </div>
+</section>

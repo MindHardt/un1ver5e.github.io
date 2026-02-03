@@ -5,6 +5,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import Heading from "@/components/Heading.astro";
 import { Image } from 'astro:assets';
 import Back from "@/components/Back.astro";
+import ExternalLink from "@/components/ExternalLink.astro";
 
 export const getStaticPaths : GetStaticPaths = async () => {
     return (await getCollection('projects')).map(project => ({
@@ -34,6 +35,7 @@ const { Content } = await render(project)
             -
             <span class="text-lg">{project.data.to?.toLocaleDateString() ?? 'Настоящий момент'}</span>
         </div>
+        {project.data.url && <ExternalLink href={project.data.url} label='Ссылка' />}
         <Content />
         <Image src={project.data.image} alt='' width={768} height={384} />
     </div>
