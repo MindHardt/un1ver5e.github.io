@@ -10,8 +10,10 @@ const projects = (await getCollection('projects'))
 
 <section>
     <Heading level={2}>Проекты</Heading>
-    <div class="grid grid-cols-2 gap-2">
+    <div class="flex flex-row gap-2 flex-wrap justify-center">
         {projects.map(p =>
-                <Card name={p.data.title} link={"/projects/" + p.id} width={512} image={p.data.image} />)}
+                <div class="w-[calc(50%-0.5rem)]">
+                    <Card name={p.data.title} link={"/projects/" + p.id} width={512} image={p.data.image} />
+                </div>)}
     </div>
 </section>
