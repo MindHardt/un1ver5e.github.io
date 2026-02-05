@@ -14,7 +14,8 @@ export const getStaticPaths : GetStaticPaths = async () => {
 }
 const { project } = Astro.props as { project: CollectionEntry<'projects'> }
 const { Content } = await render(project);
-const toShortDate = (date: Date) => `${date.getMonth()}-${date.getFullYear()}`;
+const toShortDate = (date: Date) =>
+    (date.getMonth() + 1).toString().padStart(2, '0') + '.' + date.getFullYear();
 
 ---
 
