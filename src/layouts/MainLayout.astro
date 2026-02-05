@@ -53,9 +53,14 @@ const metaTags : { name: string, content: string }[] = [
 		<title>{title}</title>
 	</head>
 	<body class="flex flex-col relative">
-		<Image src={background} alt="" priority={true} class="size-full absolute z-0 blur-xs" />
 		<main class="mx-auto flex flex-col items-center gap-3 p-5 pb-40 text-center max-w-2xl min-h-dvh z-10 bg-background">
 			<slot />
 		</main>
 	</body>
 </html>
+<style>
+	body {
+		background: #b6e7fc;
+		background: linear-gradient(90deg, rgba(182, 231, 252, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 219, 194, 1) 100%);
+	}
+</style>
